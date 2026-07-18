@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import {products} from "../assets/assets";
+import {useNavigate} from 'react-router-dom'
 
 export const ShopContext=createContext();
 
@@ -10,6 +11,7 @@ const ShopContextProvider=(props)=>{
     const [search, setSearch] = useState("");
     const [itemCard,setItemcard]= useState({})
     const [count, setCount]=useState(0)
+    const navigate =useNavigate()
 
     const addtoCard=(itemID,size)=>{
         const cardData= structuredClone(itemCard)
@@ -49,6 +51,20 @@ const ShopContextProvider=(props)=>{
         setItemcard(cartData)
     }
 
+
+    const getCardAmount= ()=>{
+        let totalAmount=0;
+        for(const items in itemCard){
+            let itemInfo = products.find((product)=>product._id==items);
+            for(const item in itemCard[items]){
+                if(itemCard[items][item]>0){
+                    totalAmount+=itemInfo.price*itemCard[items][item]
+                }
+            }
+        }
+        return totalAmount
+    }
+
         const value ={
     products,
     currency,
@@ -61,7 +77,9 @@ const ShopContextProvider=(props)=>{
     setItemcard,
     addtoCard,
     count,
-    updateQuantity
+    updateQuantity,
+    getCardAmount,
+    navigate
     
 
     }
