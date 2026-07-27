@@ -10,7 +10,7 @@ import Placeorder from './pages/Placeorder'
 import Order from './pages/Order'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
-import Cart from './pages/cart'
+import Cart from './pages/Cart'
 
 
 function App() {
