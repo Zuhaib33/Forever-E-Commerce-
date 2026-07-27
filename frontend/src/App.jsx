@@ -6,9 +6,11 @@ import About from './pages/About'
 import Contact from './pages/Contact'
 import Product from './pages/Product'
 import Login from './pages/Login'
-import Placeorder from './pages/PlaceOrder'
-import Order from './pages/Orders'
-import Cart from './pages/Cart'
+import Placeorder from './pages/Placeorder'
+import Order from './pages/Order'
+import Navbar from './components/Navbar'
+import Footer from './components/Footer'
+import Cart from './pages/cart'
 
 
 function App() {
