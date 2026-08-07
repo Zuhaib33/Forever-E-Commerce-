@@ -2,6 +2,7 @@ import userModel from "../models/userModel.js";
 import validator from "validator"
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
+// import {ADMIN_PASSWORD,ADMIN_EMAIL,JWT_SECRET} from ''
 
 const createToken = (id) => {
     return jwt.sign({ id }, process.env.JWT_SECRET)
@@ -15,24 +16,26 @@ const loginUser = async (req, res) => {
         const user = await userModel.findOne({ email })
 
         if (!user) {
-            res.json({ success: false, message: "User does not exist" })
+            return res.json({ success: false, message: "User does not exist " })
         }
         //password
         const isMatch = await bcrypt.compare(password, user.password)
 
         if (isMatch) {
             const token = createToken(user._id)
-            res.json({ success: true, token })
+
+          return  res.json({ success: true, token })
+
         } else {
             res.json({ success: false, message: "Please enter valid password" })
         }
 
     }
-    catch (error) {
+     catch (error) {
         console.log(error)
         res.json({
-            success: true,
-            token
+            success: false,
+            message:error.message
         });
     }
 }
@@ -83,14 +86,40 @@ const registerUser = async (req, res) => {
     catch (error) {
         console.log(error)
         res.json({
-            success: true,
-            token
+            success: false,
+            message:error.message
         });
     }
 }
 
 // adminlogin
-const adminlogin = async (req, res) => { }
+const adminlogin = async (req, res) => {
+
+    try {
+        
+        const {email,password}=req.body;
+
+        if(email===process.env.ADMIN_EMAIL && password===process.env.ADMIN_PASSWORD){
+
+            const token= jwt.sign(email+password,process.env.JWT_SECRET)
+           return res.json({success:true,token})
+
+        } else{
+           return res.json({success:false,message:"Invalid credentials"})
+        }
+
+
+    } catch (error) {
+        
+        console.log(error)
+        res.json({
+            success: false,
+            message:error.message
+        });
+        
+    }
+
+ }
 
 
 export { loginUser, registerUser, adminlogin }
