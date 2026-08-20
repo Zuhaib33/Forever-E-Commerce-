@@ -19,6 +19,8 @@ const ShopContextProvider = (props) => {
     const navigate = useNavigate()
     const [products, setProduct] = useState([])
 
+    const [token ,setToken]= useState("")
+
     const addtoCard = (itemID, size) => {
         const cardData = structuredClone(itemCard)
         if (cardData[itemID]) {
@@ -98,6 +100,12 @@ const ShopContextProvider = (props) => {
         getProductData()
     }, [])
 
+     useEffect(()=>{
+        if(!token && localStorage.getItem('token') ){
+            setToken(localStorage.getItem('token'))
+        }
+     },[])
+
     const value = {
         products,
         currency,
@@ -113,7 +121,9 @@ const ShopContextProvider = (props) => {
         updateQuantity,
         getCardAmount,
         navigate,
-        backendUrl
+        backendUrl,
+        setToken,
+        token
 
 
     }
