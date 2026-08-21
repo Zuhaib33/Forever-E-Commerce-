@@ -51,7 +51,7 @@ const registerUser = async (req, res) => {
         const exists = await userModel.findOne({ email })
         if (exists) {
 
-            return res.json({ success: false, massage: "user already exist" })
+            return res.json({ success: false, message: "User already exist" })
         }
 
         // validating email and pswd
@@ -61,7 +61,7 @@ const registerUser = async (req, res) => {
         }
         if (!password || password.length < 8) {
 
-            return res.json({ success: false, massage: "Password must be at least 8 characters long" })
+            return res.json({ success: false, message: "Password must be at least 8 characters long" })
         }
 
         //hashing password
