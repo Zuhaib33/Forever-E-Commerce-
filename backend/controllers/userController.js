@@ -5,7 +5,7 @@ import jwt from 'jsonwebtoken'
 // import {ADMIN_PASSWORD,ADMIN_EMAIL,JWT_SECRET} from ''
 
 const createToken = (id) => {
-    return jwt.sign({ id }, process.env.JWT_SECRET)
+    return jwt.sign({userId: id }, process.env.JWT_SECRET)
 }
 
 // userlogin

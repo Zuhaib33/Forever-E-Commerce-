@@ -5,7 +5,7 @@ import { assets } from '../assets/assets';
 import CartTotal from '../components/CartTotal';
 
 const Cart = () => {
-  const {products,currency,itemCard,updateQuantity,navigate}=useContext(ShopContext)
+  const {products,currency,itemCard,updateQuantity,navigate,token}=useContext(ShopContext)
 
    const [cartData,setCartdata]=useState([]);
    useEffect(()=>{
@@ -49,8 +49,8 @@ const Cart = () => {
                   </div>
                 </div>
               </div>
-              <input onClick={(e)=>e.target.value==='0' || e.target.value===''?null : updateQuantity(item._id,item.size,Number(e.target.value))} type="number" className='border max-w-10 sm:max-w-20 px-1 sm:px-2 py-1 ' min={1} defaultValue={item.quantity} />
-              <img onClick={()=>updateQuantity(item._id,item.size,0)} src={assets.bin_icon} className='w-4 mr-4 sm:cursor-pointer' alt="" />
+              <input onClick={(e)=>e.target.value==='0' || e.target.value===''?null : updateQuantity(item._id,item.size,Number(e.target.value),token)} type="number" className='border max-w-10 sm:max-w-20 px-1 sm:px-2 py-1 ' min={1} defaultValue={item.quantity} />
+              <img onClick={()=>updateQuantity(item._id,item.size,0,token)} src={assets.bin_icon} className='w-4 mr-4 sm:cursor-pointer' alt="" />
            </div>
             )
           })

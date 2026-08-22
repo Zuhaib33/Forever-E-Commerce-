@@ -19,7 +19,7 @@ const Product = () => {
     if (found) {
       setProductData(found)
       setImage(found.image[0])
-      console.log(found)
+      
     }
   }, [products, productId])
 
