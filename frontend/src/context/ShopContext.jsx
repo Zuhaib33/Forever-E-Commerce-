@@ -182,7 +182,8 @@ const ShopContextProvider = (props) => {
         navigate,
         backendUrl,
         setToken,
-        token
+        token,
+        setItemcard
 
 
     }
