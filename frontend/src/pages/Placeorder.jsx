@@ -33,71 +33,9 @@ const Placeorder = () => {
 
 
 
-  // const onSubmitHandler = async (event)=>{
-  //   event.preventDefault()
-
-  //   try {
-        
-  //     let orderItems = []
-
-  //     for(const items in itemCard){
-  //       for(const item in itemCard[items]){
-
-  //         if(itemCard[items][item]>0){
-  //           const itemInfo = structuredClone(products.find(product=>product._id === items))
-  //           if(itemInfo){
-  //             itemInfo.size=item
-  //             itemInfo.quantity = itemCard[items][item]
-
-  //             orderItems.push(itemInfo)
-  //           }
-  //         }
-  //       }
-
-  //     }
-
-  //     let orderData = {
-  //       address:fromData,
-  //       items:orderItems,
-  //       amount:getCardAmount()+delivery_fee
-  //     }
-
-  //     switch(method){
-        
-  //       // api call for COD
-
-  //       case'COD':
-
-  //         const responce = await axios.post(backendUrl +'/api/order/place',orderData,{headers:{token}})
-  //          console.log(responce.data.success)
-  //         if(responce.data.success){
-  //           setItemcard({})
-  //           navigate("/orders")
-
-  //         }else{
-
-  //           toast.error(responce.data.message)
-  //         }
-
-  //       break;
-
-
-  //       default:
-
-  //       break
-  //     }
-
-      
-  //   } catch (error) {
-      
-  //   }
-
-         
-  // }
-
   const onSubmitHandler = async (event) => {
     event.preventDefault()
-    console.log("FORM DATA:", fromData)
+    
    
     try {
         let orderItems = []
@@ -166,7 +104,7 @@ const Placeorder = () => {
         console.log(error)
 
         toast.error(
-            error.response?.data?.message || error.message
+             error.message
         )
     }
 }
