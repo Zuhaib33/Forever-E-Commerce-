@@ -7,10 +7,13 @@ const connectDB = async () => {
         });
 
         await mongoose.connect(process.env.MONGODB_URL, {
-  dbName: "ecommerce",
-});;
+            dbName: "ecommerce",
+        });;
+
+       
     } catch (error) {
-        console.log("MongoDB Error:", error);
+        console.error("MongoDB Error:", error);
+        throw error;
     }
 };
 

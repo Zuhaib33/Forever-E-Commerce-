@@ -93,7 +93,19 @@ const Placeorder = () => {
                     toast.error(response.data.message)
                 }
 
-                break
+                break;
+
+                case'stripe':
+
+                const responce = await axios.post(backendUrl+'/api/order/stripe',orderData,{headers:{token}})
+                if(responce.data.success){
+                  const{session_url} = responce.data
+                  window.location.replace(session_url)
+                }else{
+                  toast.error(responce.data.message)
+                }
+
+                break;
 
             default:
                 break
@@ -130,9 +142,9 @@ const Placeorder = () => {
           </div>
           <div className='flex gap-3'>
             <input required onChange={onChangeHandler } name='zipcode' value={fromData.zipcode} type="number" className='border border-gray-300 rounded py-1.5 px-3.5 w-full' placeholder='Zipcode' />
-            <input required onChange={onChangeHandler } name='phone' value={fromData.phone} type="text" className='border border-gray-300 rounded py-1.5 px-3.5 w-full' placeholder='Contry' />
+            <input required onChange={onChangeHandler } name='country' value={fromData.country} type="text" className='border border-gray-300 rounded py-1.5 px-3.5 w-full' placeholder='Contry' />
           </div>
-          <input required onChange={onChangeHandler } name='country' value={fromData.country} type="number" className='border border-gray-300 rounded py-1.5 px-3.5 w-full' placeholder='Phone' />
+          <input required onChange={onChangeHandler } name='phone' value={fromData.phone} type="number" className='border border-gray-300 rounded py-1.5 px-3.5 w-full' placeholder='Phone' />
 
       </div>
       {/* right side */}
