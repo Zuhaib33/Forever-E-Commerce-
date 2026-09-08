@@ -12,6 +12,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Cart from './pages/Cart'
 import { ToastContainer } from 'react-toastify'
+import Verify from './pages/Verify'
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
           <Route path='/login' element={<Login/>}/> 
           <Route path='/place-order' element={<Placeorder/>}/> 
           <Route path='/orders' element={<Order/>}/> 
+          <Route path='/verfiy' element={<Verify/>}/>
        </Routes>
        <Footer/>
    </div>
