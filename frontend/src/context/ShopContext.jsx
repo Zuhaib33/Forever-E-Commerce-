@@ -10,7 +10,7 @@ export const ShopContext = createContext();
 const ShopContextProvider = (props) => {
     const currency = "$";
     const delivery_fee = 10;
-    const backendUrl = "http://localhost:3000"
+    const backendUrl = "https://forever-e-commerce-rouge.vercel.app/"
     
     const [showBar, setShowBar] = useState(false)
     const [search, setSearch] = useState("");
