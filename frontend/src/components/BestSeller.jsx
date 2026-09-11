@@ -28,6 +28,7 @@ const BestSeller = () => {
         image={item.image}
         name={item.name}
         price={item.price}
+        index={index}
     />
 ))
              }
