@@ -40,7 +40,7 @@ const navbar = () => {
             <hr className='hidden w-2/3 border-none h-[1.5px] bg-gray-700' />
         </NavLink>
          <NavLink to="https://forever-admin-six-zeta.vercel.app/" className='flex flex-col items-center gap-1'> 
-            <p>CONTACT</p>
+            <p>ADMIN</p>
             <hr className='hidden w-2/3 border-none h-[1.5px] bg-gray-700' />
         </NavLink>
      </ul>
@@ -86,7 +86,7 @@ const navbar = () => {
             <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border ' to='/collection'>COLLECTION</NavLink>
             <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border ' to='/about'>ABOUT</NavLink>
             <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border ' to='/contact'>CONTACT</NavLink>
-            <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border ' to='https://forever-admin-six-zeta.vercel.app/'>Admin Pannel</NavLink>
+            <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border ' to='https://forever-admin-six-zeta.vercel.app/'>Admin Panel</NavLink>
             </div>
         </div>
      </div>
