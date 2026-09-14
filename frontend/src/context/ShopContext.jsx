@@ -21,6 +21,9 @@ const ShopContextProvider = (props) => {
 
     const [token ,setToken]= useState("")
 
+    // for navbar
+    const [visible,setVisible]=useState(false)
+
 
 
     const addtoCard = async (itemID, size) => {
@@ -183,6 +186,8 @@ const ShopContextProvider = (props) => {
         backendUrl,
         setToken,
         token,
+        visible,
+        setVisible,
         
 
 

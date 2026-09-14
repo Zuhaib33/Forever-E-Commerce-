@@ -1,10 +1,14 @@
 import React from 'react'
 import { assets } from '../assets/assets'
-import { useState, useEffect } from 'react'
+import { useState, useEffect,useContext } from 'react'
+import { ShopContext } from '../context/ShopContext'
 
 const Hero = () => {
 
+  
   const [currentImage, setCurrentImage] = useState(0)
+  const {visible} =useContext(ShopContext)
+  console.log(visible)
 
   const images = [
     assets.hero_img,
@@ -26,7 +30,7 @@ const Hero = () => {
 
 
   return (
-    <div className='relative border border-gray-400'>
+    <div className={`relative border border-gray-400 ${visible? 'hidden':""}`} >
       {/* right hero */}
       <img
         key={currentImage}

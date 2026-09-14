@@ -5,8 +5,8 @@ import { ShopContext } from '../context/ShopContext'
 
 const navbar = () => {
 
-    const [visible,setVisible]=useState(false)
-    const {setShowBar,count,navigate,token , setToken , setItemcard}=useContext(ShopContext)
+    
+    const {setShowBar,count,navigate,token , setToken , setItemcard,visible,setVisible}=useContext(ShopContext)
 
     const logOut = ()=>{
         localStorage.removeItem('token')
@@ -18,7 +18,7 @@ const navbar = () => {
      
 
   return (
-    <div className='flex items-center justify-between py-5 font-medium'>
+    <div className='flex items-center justify-between py-5 font-medium z-50'>
         <Link to='/'>
             <img src={assets.logo} alt=""  className='w-36'/>
         </Link>
@@ -51,12 +51,12 @@ const navbar = () => {
         <img src={assets.search_icon} alt="" className='w-5 cursor-pointer' onClick={()=>setShowBar(true)} />
          {/* for profile */}
         <div className='group relative'>
-            <img onClick={()=>token? null:navigate("login")} src={assets.profile_icon} alt="" className='w-5 cursor-pointer'/>
+            <img onClick={()=>token? null:navigate("login")} src={assets.profile_icon} alt="" className='w-5 cursor-pointer '/>
 
             {/* -------drop dwon--------------- */}
             {
                 token &&
-                <div className=' group-hover:block hidden absolute  right-0 pt-4 dropdown-menu'>
+                <div className=' group-hover:block hidden absolute  right-0 pt-4 dropdown-menu z-50'>
                 <div className='flex flex-col w-36  gap-2 py-3 px-5 bg-slate-100 text-gray-500 rounded'>
                     <p className=' cursor-pointer hover:text-black '>My Profile</p>
                     <p onClick={()=>navigate("/orders")} className=' cursor-pointer hover:text-black '>Order</p>
